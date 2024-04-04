@@ -1,5 +1,115 @@
-main {
-  display:flex;
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+body {
+  height: 100%;
+}
+
+header {
+  background-color: black;
+  height: 70px;
+
+  color: #FFFFE9;
+  font-size: 15px;
+  font-family: "Bree Serif", serif;
+  font-style: normal;
+
+  display: flex;
+  align-items: center;
+}
+
+a {
+  margin-left: 15px;
+  font-weight: 100;
+}
+
+h2 {
+  font-family: "Bree Serif", serif;
+  font-weight: 300;
+}
+
+p {
+  font-family: "Bree Serif", serif;
+  font-weight: 100;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 477px;
+
+  background-color: #D9D9D9;
+}
+
+.map-container h2 {
+  font-size: 30px;
+  font-family: "Bree Serif", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.map-container img {
+  height: 375px;
+  width: 617px;
+}
+
+.text-container {
+  height: 183px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.text-container h2 {
+  margin-bottom: 2px;
+}
+
+.text-container p {
+  width: 396px;
+}
+
+.text-2 {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: right;
+}
+
+.text-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chart-container h2 {
+  margin-top: 55px;
+  margin-bottom: 55px;
+  font-size: 38px;
+}
+
+.inner-chart {
+  width: 90%;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
+@media (max-width: 1250px) {
+  .inner-chart {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chart {
+    margin-bottom: 35px;
+  }
+}

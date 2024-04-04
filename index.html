@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphique Simple avec Chart.js</title>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -15,9 +16,90 @@
 
 <body>
 
-    <header></header>
+    <header>
+        <a>Covid-Info</a>
+    </header>
 
     <main>
+
+        <div class="map-container">
+            <h2>Where is Covid</h2>
+            <img src="assets/img/map.svg" alt="map">
+        </div>
+
+        <div class="text-container">
+            <h2>What is Covid-19 ?</h2>
+            <p>
+                Coronavirus disease 2019 (COVID-19) is a contagious disease caused by the coronavirus SARS-CoV-2. The
+                first known case was identified in Wuhan, China, in December 2019. The disease quickly spread worldwide,
+                resulting in the COVID-19 pandemic.
+            </p>
+        </div>
+
+        <div class="text-container text-2">
+            <h2>Where can i get tested ?</h2>
+            <p>
+                you can buy auto-test at all pharmacy around your house, or you can get tested by a professionals
+                at every hospital
+            </p>
+        </div>
+
+        <div class="text-container text-3">
+            <h2>How to protect yourself ?</h2>
+            <ul>
+                <li>
+                    Get vaccinated as soon as it’s your turn and follow local guidance on vaccination.
+                </li>
+
+                <li>
+                    Keep physical distance of at least 1 metre from others, even if they don’t appear to be sick. Avoid
+                    crowds and close contact
+                </li>
+
+                <li>
+                    Wear a properly fitted mask when physical distancing is not possible and in poorly ventilated
+                    settings
+                </li>
+
+                <li>
+                    Clean your hands frequently with alcohol-based hand rub or soap and water
+                </li>
+
+                <li>
+                    Cover your mouth and nose with a bent elbow or tissue when you cough or sneeze. Dispose of used
+                    tissues immediately and clean hands regularly
+                </li>
+
+                <li>
+                    If you develop symptoms or test positive for COVID-19, self-isolate until you recover.
+                </li>
+            </ul>
+        </div>
+
+        <div class="chart-container">
+            <h2>Chart</h2>
+
+            <div class="inner-chart">
+
+                <div class="chart">
+                    <canvas id="donutChart" width="349" height="108"></canvas>
+                </div>
+
+                <div class="chart">
+                    <canvas id="lineChart" width="549" height="308"></canvas>
+                </div>
+
+                <div class="chart">
+
+                </div>
+
+                <div class="chart">
+
+                </div>
+
+            </div>
+
+        </div>
 
     </main>
 
