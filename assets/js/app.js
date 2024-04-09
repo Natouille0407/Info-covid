@@ -30,7 +30,7 @@ fetch('https://disease.sh/v3/covid-19/all')
 
 
 
-    fetch('https://disease.sh/v3/covid-19/historical/all')
+fetch('https://disease.sh/v3/covid-19/historical/all')
     .then(response => response.json())
     .then(data => {
         const dates = Object.keys(data.cases);
@@ -60,7 +60,7 @@ fetch('https://disease.sh/v3/covid-19/all')
                 plugins: {
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 return new Intl.NumberFormat().format(context.parsed.y);
                             }
                         }
@@ -76,3 +76,4 @@ fetch('https://disease.sh/v3/covid-19/all')
     .catch(error => {
         console.error('Une erreur s\'est produite lors de la récupération des données:', error);
     });
+
