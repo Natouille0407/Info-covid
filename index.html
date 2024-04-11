@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphique Simple avec Chart.js</title>
 
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+          }
+        }
+      </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/js/svgMap.js"></script>
 
-    <link href="assets/css/s" rel="stylesheet">
-    <link href="assets/css/normalize.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +33,7 @@
 
         <div class="map-container">
             <h2>Where is Covid</h2>
-            <img src="assets/img/map.svg" alt="map">
+            <div id="globe-container"></div>
         </div>
 
         <div class="text-container">
