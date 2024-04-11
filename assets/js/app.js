@@ -76,4 +76,3 @@ fetch('https://disease.sh/v3/covid-19/historical/all')
     .catch(error => {
         console.error('Une erreur s\'est produite lors de la récupération des données:', error);
     });
-
