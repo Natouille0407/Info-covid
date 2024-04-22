@@ -8,17 +8,8 @@
 
     <link href="assets/css/normalize.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
-          }
-        }
-      </script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <script src="//unpkg.com/globe.gl"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -33,14 +24,14 @@
 
         <div class="map-container">
             <h2>Where is Covid</h2>
-            <div id="globe-container"></div>
+            <div id="globeContainer"></div>
         </div>
 
         <div class="text-container">
             <h2>What is Covid-19 ?</h2>
             <p>
-                Coronavirus disease 2019 (COVID-19) is a contagious disease caused by the coronavirus SARS-CoV-2. The
-                first known case was identified in Wuhan, China, in December 2019. The disease quickly spread worldwide,
+                Coronavirus disease 2019 (COVID-19) is a contagious disease caused by the coronavirus SARS-CoV-2. The
+                first known case was identified in Wuhan, China, in December 2019. The disease quickly spread worldwide,
                 resulting in the COVID-19 pandemic.
             </p>
         </div>
@@ -112,6 +103,7 @@
         <a href="#header">Covid-Info</a>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
