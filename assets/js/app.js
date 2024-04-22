@@ -1,3 +1,53 @@
+// globe terrestre
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Sélectionner le conteneur
+    const container = document.getElementById('globeContainer');
+
+    // Configurer et initialiser le globe
+    const myGlobe = Globe({
+        rendererConfig: {
+            antialias: true,
+            alpha: true
+        },
+        waitForGlobeReady: true,
+        animateIn: true
+    })(container)
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+        .pointsData([
+            { lat: 48.87, lng: 2.33, label: 'Paris' },
+        ]);
+
+    myGlobe
+        .showGlobe(true)
+        .showGraticules(false)
+        .showAtmosphere(true)
+        .atmosphereColor('lightskyblue')
+        .atmosphereAltitude(0.15);
+
+    myGlobe.render();
+});
+  
+  let countries = 0;
+
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  
+  fetch("https://disease.sh/v3/covid-19/countries", requestOptions)
+    .then((response) => response.json())
+    .then((result) => countries = result)
+    .catch((error) => console.error(error));
+    
+    for (let i = 0; i < countries.length; i++) {
+        console.log("Pays actuel :");
+    }
+
+// Graphique
+
 // Effectuer une requête à l'API pour obtenir les données
 fetch('https://disease.sh/v3/covid-19/all')
     .then(response => response.json())
@@ -27,8 +77,6 @@ fetch('https://disease.sh/v3/covid-19/all')
     .catch(error => {
         console.error('Une erreur s\'est produite lors de la récupération des données:', error);
     });
-
-
 
 fetch('https://disease.sh/v3/covid-19/historical/all')
     .then(response => response.json())
