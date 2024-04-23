@@ -1,15 +1,13 @@
 // variables globals
 
+let countriesTab = [];
 let countries = 0;
-
-// globe terrestre
+let myGlobe;
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Sélectionner le conteneur
     const container = document.getElementById('globeContainer');
-
-    // Configurer et initialiser le globe
-    const myGlobe = Globe({
+    
+    myGlobe = Globe({
         rendererConfig: {
             antialias: true,
             alpha: true
@@ -18,16 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
         animateIn: true
     })(container)
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-        .pointsData([
-            { lat: 48.87, lng: 2.33, label: 'Paris' },
-        ]);
+        .pointsData([])
+        .pointAltitude([0.1]);
 
     myGlobe
         .showGlobe(true)
         .showGraticules(false)
         .showAtmosphere(true)
         .atmosphereColor('lightskyblue')
-        .atmosphereAltitude(0.15);
+        .atmosphereAltitude(0.3);
 
     myGlobe.render();
 });
@@ -46,23 +43,47 @@ function fetchCountries() {
         .catch((error) => console.error(error));
 }
 
-fetchCountries().then((countries) => {
-    countries.forEach(function(country) {
+function fetchCountryInfo(countryName) {
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
 
-        const requestOptions = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-    
-        return fetch("https://restcountries.com/v3.1/name/", requestOptions)
-            .then((response) => response.json())
-            .then((result) => result)
-            .catch((error) => console.error(error));
+    return fetch(`https://restcountries.com/v3.1/name/${countryName}`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => result)
+        .catch((error) => console.error(error));
+}
+
+fetchCountries().then((countries) => {
+
+    console.log(countries)
+
+    countries.forEach(function (country) { 
+
+        fetchCountryInfo(country.country).then((countryInfo) => {
+            const latitude = countryInfo[0].latlng[0];
+            const longitude = countryInfo[0].latlng[1];
+            console.log(`Latitude of ${country.country}: ${latitude}`);
+            console.log(`Longitude of ${country.country}: ${longitude}`);
             
+            countriesTab.push({ 
+                lat: latitude, 
+                lng: longitude, 
+                label: country.country, 
+            });
+            console.log(countriesTab)
+            myGlobe.pointsData(countriesTab)
+
+        }).catch((error) => console.error(error));
+
     });
+    
 });
+
+
 
 // Graphique
 
@@ -142,3 +163,5 @@ fetch('https://disease.sh/v3/covid-19/historical/all')
     .catch(error => {
         console.error('Une erreur s\'est produite lors de la récupération des données:', error);
     });
+
+    fetchCountries()
