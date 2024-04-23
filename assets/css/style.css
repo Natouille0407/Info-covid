@@ -43,7 +43,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 477px;
+  height: 1100px;
 
   background-color: #000011;
 }
@@ -135,6 +135,9 @@ footer {
   height: 400px; /* ou toute autre taille souhaitée */
 }
 
+#globeContainer {
+  height: 919px;
+}
 
 @media (max-width: 1250px) {
   .inner-chart {
