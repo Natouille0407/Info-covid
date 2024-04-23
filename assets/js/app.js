@@ -1,3 +1,7 @@
+// variables globals
+
+let countries = 0;
+
 // globe terrestre
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,24 +31,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     myGlobe.render();
 });
-  
-  let countries = 0;
 
-  const requestOptions = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-  
-  fetch("https://disease.sh/v3/covid-19/countries", requestOptions)
-    .then((response) => response.json())
-    .then((result) => countries = result)
-    .catch((error) => console.error(error));
+function fetchCountries() {
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    return fetch("https://disease.sh/v3/covid-19/countries", requestOptions)
+        .then((response) => response.json())
+        .then((result) => result)
+        .catch((error) => console.error(error));
+}
+
+fetchCountries().then((countries) => {
+    countries.forEach(function(country) {
+
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
     
-    for (let i = 0; i < countries.length; i++) {
-        console.log("Pays actuel :");
-    }
+        return fetch("https://restcountries.com/v3.1/name/", requestOptions)
+            .then((response) => response.json())
+            .then((result) => result)
+            .catch((error) => console.error(error));
+            
+    });
+});
 
 // Graphique
 
